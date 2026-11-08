@@ -22,7 +22,7 @@ jobs:
         run: docker build -t inventory-agent-ci .
 
       - name: Run Django system checks
-        run: docker run --rm inventory-agent-ci python manage.py check
+        run: docker run --rm -e GEMINI_API_KEY=dummy_key_for_ci inventory-agent-ci python manage.py check
 
       - name: Run Django tests
-        run: docker run --rm inventory-agent-ci python manage.py test
+        run: docker run --rm -e GEMINI_API_KEY=dummy_key_for_ci inventory-agent-ci python manage.py test
